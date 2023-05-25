@@ -16,4 +16,5 @@ int main(void)
 ```
 
 **You can use preprocessor directive like __NR_write for the rax syscall number or just the correponding number (1 for write)**
+
 **see,** *https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/*
