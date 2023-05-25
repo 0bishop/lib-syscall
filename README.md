@@ -1,6 +1,6 @@
 # kern_syscall
 
-## Recoding syscall's used in LibC at the deepest level
+## Recoding Linux/ Unix syscall's used in LibC at the deepest level
 ```usage:```
 
 ```c
