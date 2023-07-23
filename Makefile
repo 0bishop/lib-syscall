@@ -17,7 +17,7 @@ all: $(NAME) clean
 
 $(NAME): $(OBJ)
 	clang -fverbose-asm -fkeep-inline-functions -w -c $(SRC)
-	gcc -o $@ $^
+	clang -o $@ $^
 
 clean:
 	rm -f $(OBJ)
