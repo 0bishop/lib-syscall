@@ -4,7 +4,6 @@
     #define SYSCALL syscall
 
     #include <stdarg.h>
-    #include <sys/syscall.h>
 
     typedef unsigned long int uint64_t;
     static inline uint64_t syscall(uint64_t syscall_number, ...);

@@ -16,7 +16,7 @@ NAME = ./bin
 all: $(NAME) clean
 
 $(NAME): $(OBJ)
-	gcc -fverbose-asm -w -c $(SRC)
+	clang -fverbose-asm -fkeep-inline-functions -w -c $(SRC)
 	gcc -o $@ $^
 
 clean:
