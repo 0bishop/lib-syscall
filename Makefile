@@ -1,10 +1,3 @@
-##
-## EPITECH PROJECT, 2022
-## Makefile
-## File description:
-## my Makefile
-##
-
 .SILENT:
 
 SRC = $(wildcard *.c)
