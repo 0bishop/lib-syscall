@@ -1,20 +1,20 @@
 #ifndef SYSCALL_H_
     #define SYSCALL_H_
-    #define NULL ((void *)0)
     #define SYSCALL syscall
+    #define __always_inline         inline __attribute__((__always_inline__))
 
     #include <stdarg.h>
 
     typedef unsigned long int uint64_t;
     static inline uint64_t syscall(uint64_t syscall_number, ...);
 
-    static inline uint64_t syscall(uint64_t syscall_number, ...)
+    static __always_inline uint64_t syscall(uint64_t syscall_number, ...)
     {
-        __gnuc_va_list args;
+        __builtin_va_list args;
         __builtin_va_start(args, syscall_number);
 
         uint64_t ret;
-        __asm__ __volatile__(
+        asm volatile (
             "mov %1, %%rax\n"
             "mov %2, %%rdi\n"
             "mov %3, %%rsi\n"
@@ -34,6 +34,7 @@
             "r"(__builtin_va_arg(args, uint64_t) ?: 0)
             : "rax", "rdi", "rsi", "rdx", "r10", "r8", "r9"
         );
+
         __builtin_va_end(args);
 
         return ret;
