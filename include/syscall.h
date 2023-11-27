@@ -1,14 +1,13 @@
 #ifndef SYSCALL_H_
     #define SYSCALL_H_
     #define SYSCALL syscall
-    #define __always_inline         inline __attribute__((__always_inline__))
 
     #include <stdarg.h>
 
     typedef unsigned long int uint64_t;
     static inline uint64_t syscall(uint64_t syscall_number, ...);
 
-    static __always_inline uint64_t syscall(uint64_t syscall_number, ...)
+    static inline uint64_t syscall(uint64_t syscall_number, ...)
     {
         __builtin_va_list args;
         __builtin_va_start(args, syscall_number);
